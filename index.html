@@ -28,6 +28,27 @@
         <button onclick="next20()">load Pokemons</button>
     </div>
 
+    <div id="details" class="details d-none">
+        <div class="left-btn" id="left-btn">
+            <img src="icons/left-arrow.svg" alt="left" style="height: 50px">
+        </div>        
+        <div id="class-type" class="detail-card">
+            <button onclick="closeCard()">X</button>
+            <h1 id="pokemonName" class="pokemonName">Name</h1>
+            <div id="id" class="id"># ID</div>
+            <div class="card" >                
+                <img id="pokemonImage" src="">
+                <div class="type-container" id="abilities"></div>
+                <div class="type-container" id="baseStats"></div>
+                <div class="type-container" id="moves"></div>
+            </div>
+        </div>
+        <div class="right-btn" id="right-btn">
+            <img src="icons/right-arrow.svg" alt="right" style="height: 50px">
+        </div>
+        
+    </div>
+
 
 </body>
 

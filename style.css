@@ -138,6 +138,37 @@ body{
     box-shadow: 0 0 20px #539DDF;
 }
 
+.bg{
+    height: 16px;
+    color: #f7f7f7;
+    padding-left: 6px;
+    max-width: 105%;
+}
+
+.bg1{
+    background-color: red;    
+}
+
+.bg2{
+    background-color: green;
+}
+
+.bg3{
+    background-color: blue;
+}
+
+.bg4{
+    background-color: orange;
+}
+
+.bg5{
+    background-color: brown;
+}
+
+.bg6{
+    background-color: goldenrod;
+}
+
 .container{
     display: flex;
     flex-wrap: wrap;
@@ -205,7 +236,83 @@ body{
 }
 
 .d-none{
-    display: none;
+    display: none !important;
+}
+
+.baseStatsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 90%;
+}
+
+.bs{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 8px;
+    color: black;
+}
+
+.graph{
+    width:70%;
+}
+
+.details{
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    display: flex;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail-card{
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    align-items: center;
+    color: #f7f7f7;
+    font-weight: bold;
+}
+
+.detail-card button{
+    position: relative;
+    left: -200px;
+    top: 16px;
+    background-color: #f7f7f7;
+    border-radius: 100%;
+    height: 36px;
+    width: 36px;
+    border-style: none;
+}
+
+.detail-card button:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.right-btn img:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.left-btn img:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.ability{
+display: flex;
+padding: 12px;
+border-radius: 24px;
+margin-bottom: 12px;
+margin-inline: 12px;
 }
 
 @media(max-width: 720px){
