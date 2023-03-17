@@ -3,8 +3,10 @@ function renderCards(type, currentPokemon, i){
     <div class="pokedex ${type}">
         <h1 class="pokemonName">${currentPokemon['name']}</h1>
         <div class="id"># ${currentPokemon['id']}</div>
-        <div class="card">                
-            <img onclick="openCard(${i})"class="hover" id="pokemonImage${i}" src="${currentPokemon['sprites']['other']['official-artwork']['front_default']}">
+        <div class="card"> 
+            <div class="card-img">               
+                <img onclick="openCard(${i})"class="hover" id="pokemonImage${i}" src="${currentPokemon['sprites']['other']['official-artwork']['front_default']}">
+            </div>
             <div class="type-container" id="card${i}"></div>
         </div>
     </div>`;

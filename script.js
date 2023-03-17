@@ -49,16 +49,16 @@ function showButtons(index){
     previousIndex = index -1;
     nextIndex = index + 1;
     if (previousIndex >= 0){
-        document.getElementById('left-btn').innerHTML = `<img onclick="openCard(${previousIndex})" src="icons/left-arrow.svg" style="height: 50px">`;
+        document.getElementById('left-btn').innerHTML = `<img onclick="openCard(${previousIndex})" src="icons/left-arrow.svg">`;
     }else{
-        document.getElementById('left-btn').innerHTML = `<img src="icons/left-arrow.svg" style="height: 50px; opacity: 0">`;
+        document.getElementById('left-btn').innerHTML = `<img src="icons/left-arrow.svg" opacity: 0">`;
     }
     if (nextIndex <= 1281){
-        document.getElementById('right-btn').innerHTML = `<img onclick="openCard(${nextIndex})" src="icons/right-arrow.svg" style="height: 50px">`;
+        document.getElementById('right-btn').innerHTML = `<img onclick="openCard(${nextIndex})" src="icons/right-arrow.svg" >`;
     }else{
-        document.getElementById('right-btn').innerHTML = `<img src="icons/right-arrow.svg" style="height: 50px; opacity: 0">`;
+        document.getElementById('right-btn').innerHTML = `<img src="icons/right-arrow.svg"; opacity: 0">`;
     }   
-    /* document.getElementById('right-btn').innerHTML = `<img onclick="openCard(${nextIndex})" src="icons/right-arrow.svg" style="height: 50px">`; */
+    /* document.getElementById('right-btn').innerHTML = `<img onclick="openCard(${nextIndex})" src="icons/right-arrow.svg" >`; */
 }
 
 function baseStats(currentPokemon) {
@@ -94,3 +94,7 @@ function types(currentPokemon, i) {
 function closeCard(){
     document.getElementById('details').classList.add('d-none'); 
 }
+
+function stopPropagation(event) {
+    event.stopPropagation();
+  }
