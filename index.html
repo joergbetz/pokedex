@@ -17,8 +17,9 @@
     <header class="header">
         <img src="img/pokemon-logo.png">
         <div class="left-header">
-            <input type="text" placeholder="search Pokemon">
-            <button>start search</button>
+            <input type="text" placeholder="search Pokemon" id="search" onkeypress="clickPress(event)">
+            <button onclick="startSearch()"><img src="icons/magnifier.svg"></button>
+            <button onclick="resetSearch()"><img src="icons/trash.svg"></button>
         </div>
 
     </header>
@@ -32,26 +33,26 @@
     <div id="details" class="details d-none" onclick="closeCard()">
         <div class="details-container" onclick="stopPropagation(event)">
             <div class="left-btn arrow" id="left-btn">
-                <img src="icons/left-arrow.svg" alt="left">
+                <img src="icons/left-arrow.png" alt="left">
             </div>
             <div id="class-type" class="detail-card">
                 <div class="close-btn">
                     <button onclick="closeCard()">X</button>
                 </div>
-                
+
                 <h1 id="pokemonName" class="pokemonName">Name</h1>
                 <div id="id" class="id"># ID</div>
                 <div class="detail-card-child">
                     <div class="detail-card-pokemon">
                         <img id="pokemonImage" src="">
-                    </div>                    
+                    </div>
                     <div class="type-container" id="abilities"></div>
                     <div class="type-container" id="baseStats"></div>
                     <div class="type-container" id="moves"></div>
                 </div>
             </div>
             <div class="right-btn arrow" id="right-btn">
-                <img src="icons/right-arrow.svg" alt="right">
+                <img src="icons/right-arrow.png" alt="right">
             </div>
         </div>
     </div>

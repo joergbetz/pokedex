@@ -1,4 +1,5 @@
 let currentPokemon;
+let allPokemons;
 let i = 0;
 let j = 20;
 
@@ -49,12 +50,12 @@ function showButtons(index) {
     previousIndex = index - 1;
     nextIndex = index + 1;
     if (previousIndex >= 0) {
-        document.getElementById('left-btn').innerHTML = `<img onclick="openCard(${previousIndex})" src="icons/left-arrow.svg">`;
+        document.getElementById('left-btn').innerHTML = `<img onclick="openCard(${previousIndex})" src="icons/left-arrow.png">`;
     } else {
         document.getElementById('left-btn').innerHTML = `<img src="icons/left-arrow.svg" style="opacity:0">`;
     }
     if (nextIndex <= 1281) {
-        document.getElementById('right-btn').innerHTML = `<img onclick="openCard(${nextIndex})" src="icons/right-arrow.svg" >`;
+        document.getElementById('right-btn').innerHTML = `<img onclick="openCard(${nextIndex})" src="icons/right-arrow.png" >`;
     } else {
         document.getElementById('right-btn').innerHTML = `<img src="icons/right-arrow.svg"; style="opacity:0">`;
     }
@@ -79,7 +80,6 @@ function abilities(currentPokemon) {
             renderAbilities(ability);
         document.getElementById(`${ability}`).classList.add(`${currentPokemon['types'][0]['type']['name']}`);
     }
-
 }
 
 function types(currentPokemon, i) {
@@ -97,3 +97,43 @@ function closeCard() {
 function stopPropagation(event) {
     event.stopPropagation();
 }
+
+function startSearch() {
+    document.getElementById('next-btn').classList.add('d-none');
+    document.getElementById('container').innerHTML = '';
+    let search = document.getElementById('search').value; /*nimmtText aus Input Feld*/
+    search = search.toLowerCase();
+    if (search.length < 1){
+        resetSearch();
+    }else{
+        searchLoop(search)
+    }    
+}
+
+async function searchLoop(search){
+    for (index = 0; index < 1281; index++) {
+        if (allPokemons['results'][index]['name'].toLowerCase().includes(search)) {
+            let url2 = `https://pokeapi.co/api/v2/pokemon/${allPokemons['results'][index]['name']}`;
+            let response2 = await fetch(url2);
+            currentPokemon = await response2.json();
+            type = currentPokemon['types'][0]['type']['name'];
+            document.getElementById('container').innerHTML +=
+                renderSearch(type, currentPokemon, index)
+        }
+    }
+}
+
+function resetSearch(){
+    i=0;
+    j=20;
+    document.getElementById('container').innerHTML ='';
+    loadPokemon();
+    document.getElementById('next-btn').classList.remove('d-none');
+    document.getElementById('search').value = '';
+}
+
+function clickPress(event) {
+    if (event.keyCode == 13) {
+      startSearch();
+    }
+  }

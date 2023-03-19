@@ -1,4 +1,4 @@
-function renderCards(type, currentPokemon, i){
+function renderCards(type, currentPokemon, i) {
     return `
     <div class="pokedex ${type}">
         <h1 class="pokemonName">${currentPokemon['name']}</h1>
@@ -12,13 +12,13 @@ function renderCards(type, currentPokemon, i){
     </div>`;
 }
 
-function renderTypes(type){
+function renderTypes(type) {
     return `
     <img class="icon ${type}" src="icons/${type}.svg"></img>`;
 }
 
-function renderBaseStats(hp, attack, defense, specialAttack, specialDefense, speed){
-    return`
+function renderBaseStats(hp, attack, defense, specialAttack, specialDefense, speed) {
+    return `
     <div class="baseStatsContainer">
         <div class="bs">
             <span style="width:30%">HP</span>
@@ -60,8 +60,22 @@ function renderBaseStats(hp, attack, defense, specialAttack, specialDefense, spe
     `;
 }
 
-function renderAbilities(ability){
+function renderAbilities(ability) {
     return `
     <div id="${ability}" class="ability">${ability}</div>
     `;
+}
+
+function renderSearch(type, currentPokemon, index) {
+    return `
+    <div class="pokedex ${type}">
+        <h1 class="pokemonName">${currentPokemon['name']}</h1>
+        <div class="id"># ${currentPokemon['id']}</div>
+        <div class="card"> 
+            <div class="card-img">               
+                <img onclick="openCard(${index})"class="hover" id="pokemonImage${index}" src="${currentPokemon['sprites']['other']['official-artwork']['front_default']}">
+            </div>
+            <div class="type-container" id="card${index}"></div>
+        </div>
+    </div>`;
 }
